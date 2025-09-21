@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bioinformatics Assistant Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Bioinformatics Assistant</h1>
+        <p>
+          Advanced tools for protein, DNA/RNA, pathway, and drug discovery
+          analysis
+        </p>
+      </header>
+
+      <div class="tabs-container">
+        <div class="tabs">
+          <div class="tab active" data-tab="protein">
+            <i class="icon">🧬</i>
+            <span>Protein Analysis</span>
+          </div>
+          <div class="tab" data-tab="dna">
+            <i class="icon">🔬</i>
+            <span>DNA/RNA Analysis</span>
+          </div>
+          <div class="tab" data-tab="pathway">
+            <i class="icon">🔄</i>
+            <span>Pathway Analysis</span>
+          </div>
+          <div class="tab" data-tab="drug">
+            <i class="icon">💊</i>
+            <span>Drug Discovery</span>
+          </div>
+        </div>
+      </div>
+
+      <main>
+        <section id="protein" class="content-section active">
+          <div class="section-header">
+            <h2>Protein Analysis</h2>
+            <p>Retrieve protein information from UniProt database</p>
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="proteinId"
+              placeholder="Enter Protein ID (e.g., P69905)"
+            />
+            <button onclick="lookupProtein()" class="btn-primary">
+              Lookup Protein
+            </button>
+          </div>
+          <div class="output-container">
+            <h3>Protein Information</h3>
+            <pre id="proteinOutput">
+Enter a protein ID to retrieve information...</pre
+            >
+          </div>
+          <div class="chart-container">
+            <h3>Sequence Length Visualization</h3>
+            <canvas id="proteinChart"></canvas>
+          </div>
+        </section>
+
+        <section id="dna" class="content-section">
+          <div class="section-header">
+            <h2>DNA/RNA Analysis</h2>
+            <p>Analyze DNA sequences and calculate properties</p>
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="dnaSequence"
+              placeholder="Enter DNA sequence (e.g., ATGCGT)"
+            />
+            <button onclick="analyzeDNA()" class="btn-primary">
+              Analyze Sequence
+            </button>
+          </div>
+          <div class="output-container">
+            <h3>Analysis Results</h3>
+            <pre id="dnaOutput">Enter a DNA sequence to analyze...</pre>
+          </div>
+          <div class="chart-container">
+            <h3>GC Content Analysis</h3>
+            <canvas id="gcChart"></canvas>
+          </div>
+        </section>
+
+        <section id="pathway" class="content-section">
+          <div class="section-header">
+            <h2>Pathway Analysis</h2>
+            <p>Explore protein interaction networks</p>
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="pathwayProtein"
+              placeholder="Enter Protein ID (e.g., P69905)"
+            />
+            <button onclick="lookupPathway()" class="btn-primary">
+              Find Pathways
+            </button>
+          </div>
+          <div class="output-container">
+            <h3>Interaction Partners</h3>
+            <pre id="pathwayOutput">
+Enter a protein ID to find interaction partners...</pre
+            >
+          </div>
+          <div class="chart-container">
+            <h3>Interaction Network</h3>
+            <canvas id="interactionNetwork"></canvas>
+          </div>
+        </section>
+
+        <section id="drug" class="content-section">
+          <div class="section-header">
+            <h2>Drug Discovery</h2>
+            <p>Search for compounds related to proteins or drugs</p>
+          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              id="drugProtein"
+              placeholder="Enter Protein or Drug Name"
+            />
+            <button onclick="lookupDrug()" class="btn-primary">
+              Search Compounds
+            </button>
+          </div>
+          <div class="output-container">
+            <h3>Related Compounds</h3>
+            <div id="drugOutput">
+              Enter a protein or drug name to find related compounds...
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          Bioinformatics Assistant Dashboard &copy; 2023 | Powered by UniProt,
+          STRING, and PubChem APIs
+        </p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
